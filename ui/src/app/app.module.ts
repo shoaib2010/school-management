@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule,ReactiveFormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -41,13 +41,19 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts';
-import { UserLoginComponent } from './user-login/user-login.component';
-import { UserRoleComponent } from './user-role/user-role.component';
+import { FeaturesModule } from './containers/modules/features/features.module';
+import { AdminModule } from './containers/modules/admin/admin.module';
+import { LoginModule } from './containers/modules/login/login.module';
+// import { UserLoginComponent } from './dump/user-login/user-login.component';
+// import { UserRoleComponent } from './dump/user-role/user-role.component';
+
 
 @NgModule({
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule,
     AppAsideModule,
     AppBreadcrumbModule.forRoot(),
@@ -58,7 +64,9 @@ import { UserRoleComponent } from './user-role/user-role.component';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    FormsModule,ReactiveFormsModule
+    LoginModule,
+    // FeaturesModule,
+    // AdminModule
   ],
   declarations: [
     AppComponent,
@@ -67,8 +75,8 @@ import { UserRoleComponent } from './user-role/user-role.component';
     P500Component,
     LoginComponent,
     RegisterComponent,
-    UserLoginComponent,
-    UserRoleComponent
+    // UserLoginComponent,
+    // UserRoleComponent
   ],
   providers: [{
     provide: LocationStrategy,
