@@ -1,0 +1,35 @@
+<form [formGroup]="roleForm" (ngSubmit)="onSubmit()">
+    <div class="card">
+        <div class="card-header">
+            <strong>Roles</strong>
+            <button type="button" (click)="addRole()" class="btn btn-sm btn-primary float-right"><i
+                        class="icon-plus"></i> Add</button>
+        </div>
+        <div class="card-body">
+            <form [formGroup]="roleForm" class="form-horizontal">
+                <div class="well" formArrayName="roles">
+                    <div class="form-group row" *ngFor="let item of roles.controls; let roleIndex=index"
+                        [formGroupName]="roleIndex">
+                        <label class="col-sm-1 offset-md-2 col-form-label" for="input-small">Role</label>
+                        <div class="col-md-3">
+                            <input type="text" formControlName="role_name" id="input-small" name="input-small"
+                                class="form-control form-control-sm" placeholder="Role Name">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="text" formControlName="sub_role" id="input-small" name="input-small"
+                                class="form-control form-control-sm" placeholder="Sub Role Name" style="margin-top:2px">
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" (click)="deleteRole(roleIndex)" class="btn btn-sm btn-danger"
+                                style="margin-top:2px"><i class="icon-close"></i> Remove</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-dot-circle-o"></i> Submit</button>
+            <button type="reset" class="btn btn-sm btn-danger"><i class="fa fa-ban"></i> Reset</button>
+        </div>
+    </div>
+</form>
