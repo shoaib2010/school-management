@@ -1,5 +1,5 @@
 import { FormGroup } from '@angular/forms';
-import { delay ,distinctUntilChanged } from 'rxjs/operators'
+import { delay, distinctUntilChanged } from 'rxjs/operators'
 
 
 export abstract class BaseComponent {

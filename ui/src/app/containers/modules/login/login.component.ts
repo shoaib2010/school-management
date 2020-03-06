@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, NgForm, FormBuilder } from '@angular/forms';
 import { BaseComponent } from '../../../shared/common/base.component';
-import { LoginHelper } from './login.helprt';
+import { LoginHelper } from './login.helper';
 
 @Component({
   selector: 'app-login',
@@ -9,31 +9,25 @@ import { LoginHelper } from './login.helprt';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends BaseComponent implements OnInit {
-
-  dataForm: FormGroup;
-  // submitted: boolean;
-  // errors: string;
-
-  // loginForm = new FormGroup({
-  //   username: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  //   password: new FormControl('', [Validators.required])
-  // });
-
   constructor(private fb: FormBuilder) {
     super();
-    // this.submitted = false;
-    // this.errors = '';
     this.validationMessages = LoginHelper.setValidationMessages();
     this.dataForm = LoginHelper.setValidationRules(fb);
   }
 
+  dataForm: FormGroup;
+
+  actions = {
+    onSubmit: () => {
+      console.log('dataForm', this.dataForm);
+
+      this.submit();
+    }
+  };
+
   ngOnInit(): void {
     this.valueChanges(this.dataForm);
   }
-
-  // get f() {
-  //   return this.loginForm.controls;
-  // }
 
   private submit() {
     // this.submitted = true;
@@ -42,12 +36,6 @@ export class LoginComponent extends BaseComponent implements OnInit {
     //   return;
     // }
     // const values = this.loginForm.value;
-  }
-
-  actions = {
-    onSubmit: () => {
-      this.submit()
-    }
   }
 
 }

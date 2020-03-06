@@ -7,7 +7,7 @@
             <div class="card-group">
               <div class="card p-4">
                 <div class="card-body">
-                  <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+                  <form [formGroup]="dataForm" (ngSubmit)="actions.onSubmit()">
                     <!-- <div *ngIf="errors" class="alert alert-danger">
                         <strong>Error:</strong> {{errors}}.
                     </div> -->
@@ -33,7 +33,9 @@
                     </div>
                     <div class="row">
                       <div class="col-6">
-                        <button type="submit" class="btn btn-primary px-4">Login</button>
+                        <button type="submit"
+                          [disabled]="!dataForm.valid"
+                          class="btn btn-primary px-4">Login</button>
                       </div>
                       <div class="col-6 text-right">
                         <button type="button" class="btn btn-link px-0">Forgot password?</button>
