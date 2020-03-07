@@ -1,4 +1,4 @@
-<p align="center">
+<!-- <p align="center">
   <a href="https://github.com/ng-matero">
     <img width="150" src="https://avatars1.githubusercontent.com/u/49753463?s=200&v=4">
   </a>
@@ -142,4 +142,4 @@ Support this project with your organization. Your logo will show up here with a 
 
 ## 📃 License
 
-MIT
+MIT -->
