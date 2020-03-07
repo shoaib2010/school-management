@@ -7,27 +7,35 @@
             <div class="card-group">
               <div class="card p-4">
                 <div class="card-body">
-                  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-                    <div *ngIf="errors" class="alert alert-danger">
+                  <form [formGroup]="dataForm" (ngSubmit)="actions.onSubmit()">
+                    <!-- <div *ngIf="errors" class="alert alert-danger">
                         <strong>Error:</strong> {{errors}}.
-                    </div>
+                    </div> -->
                     <h1>Login</h1>
                     <p class="text-muted">Sign In to your account</p>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-user"></i></span>
                       </div>
-                      <input type="text" formControlName="username" name="username" class="form-control" placeholder="Username" autocomplete="username" required>
+                      <input type="text" formControlName="userName" name="userName" class="form-control" placeholder="Username" autocomplete="username" required>
+                      <div *ngIf="formErrors?.userName" class="text-danger">
+                        <strong>Error:</strong> {{formErrors?.userName}}.
+                      </div>
                     </div>
                     <div class="input-group mb-4">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="icon-lock"></i></span>
                       </div>
                       <input type="password" formControlName="password" class="form-control" placeholder="Password" autocomplete="current-password" required>
+                      <div *ngIf="formErrors?.password" class="text-danger">
+                        <strong>Error:</strong> {{formErrors?.password}}.
+                      </div>
                     </div>
                     <div class="row">
                       <div class="col-6">
-                        <button type="submit" class="btn btn-primary px-4">Login</button>
+                        <button type="submit"
+                          [disabled]="!dataForm.valid"
+                          class="btn btn-primary px-4">Login</button>
                       </div>
                       <div class="col-6 text-right">
                         <button type="button" class="btn btn-link px-0">Forgot password?</button>
@@ -51,5 +59,4 @@
       </div>
     </main>
   </div>
-
 </div>

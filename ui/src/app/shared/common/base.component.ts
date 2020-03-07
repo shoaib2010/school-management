@@ -1,4 +1,5 @@
 import { FormGroup } from '@angular/forms';
+import { delay, distinctUntilChanged } from 'rxjs/operators'
 
 
 export abstract class BaseComponent {
@@ -11,15 +12,21 @@ export abstract class BaseComponent {
   }
 
 
-  valueChanges() {
-
-    // this.employeeForm.valueChanges.subscribe((data) => {
-    //   this.logValidationErrors(this.employeeForm);
-    // });
+  valueChanges(formGroup: FormGroup) {
+    formGroup.valueChanges.
+    pipe(
+      delay(500),
+      distinctUntilChanged(),
+    )
+    .subscribe((result) => {
+      console.log('valueChanges', result);
+      this.validationErrors(formGroup);
+    });
   }
 
 
   validationErrors(formGroup: FormGroup): void {
+    debugger;
     Object.keys(formGroup.controls).forEach((key: string) => {
       const abstractControl = formGroup.get(key);
       if (abstractControl instanceof FormGroup) {
@@ -35,6 +42,7 @@ export abstract class BaseComponent {
           }
         }
       }
+      console.log('formErrors', this.formErrors);
     });
   }
 

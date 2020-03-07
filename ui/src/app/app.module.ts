@@ -23,7 +23,8 @@ import { DefaultLayoutComponent } from './containers';
 // import { RegisterComponent } from './views/register/register.component';
 
 const APP_CONTAINERS = [
-  DefaultLayoutComponent
+  //DefaultLayoutComponent,
+  LayoutComponent
 ];
 
 // import {
@@ -37,6 +38,7 @@ const APP_CONTAINERS = [
 // Import routing module
 import { AppRoutingModule } from './app.routing';
 import { LoginComponent } from './containers/modules/login/login.component';
+import { LayoutComponent } from './containers/layout/layout.component';
 
 // Import 3rd party components
 // import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -72,7 +74,7 @@ import { LoginComponent } from './containers/modules/login/login.component';
   ],
   declarations: [
     AppComponent,
-    // ...APP_CONTAINERS,
+    ...APP_CONTAINERS,
     // P404Component,
     // P500Component,
     LoginComponent,

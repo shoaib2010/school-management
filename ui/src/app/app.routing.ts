@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
-import { DefaultLayoutComponent } from './containers';
+//import { DefaultLayoutComponent } from './containers';
+import { LayoutComponent } from './containers/layout/layout.component';
 
 // import { P404Component } from './views/error/404.component';
 // import { P500Component } from './views/error/500.component';
@@ -13,22 +14,25 @@ import { DefaultLayoutComponent } from './containers';
 import { LoginComponent } from './containers/modules/login/login.component';
 
 
-export const routes: Routes = [
-  // {
-  //   path: '',
-  //   loadChildren: () => import('./containers/modules/login/login.module').then(m => m.LoginModule)
-  // },
 
+export const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginComponent,
     data: {
-      title: 'Login'
+      title:'Login Page'
+    }
+  },  
+  {
+    path: '',
+    component: LayoutComponent,
+    data: {
+      title: 'Home'
     },
     children: [
       {
-        path: 'login',
-        loadChildren: () => import('./containers/modules/login/login.module').then(m => m.LoginModule)
+        path: 'admin',
+        loadChildren: () => import('./containers/modules/admin/admin.module').then(m => m.AdminModule)
       }
     ]
   }
