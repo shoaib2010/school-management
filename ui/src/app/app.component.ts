@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { PreloaderService } from '@core';
 
 @Component({
-  // tslint:disable-next-line
-  selector: 'body',
-  template: '<router-outlet></router-outlet>'
+  selector: 'app-root',
+  template: '<router-outlet></router-outlet>',
 })
-export class AppComponent implements OnInit {
-  constructor(private router: Router) { }
+export class AppComponent implements OnInit, AfterViewInit {
+  constructor(private preloader: PreloaderService) {}
 
-  ngOnInit() {
-    this.router.events.subscribe((evt) => {
-      if (!(evt instanceof NavigationEnd)) {
-        return;
-      }
-      window.scrollTo(0, 0);
-    });
+  ngOnInit() {}
+
+  ngAfterViewInit() {
+    this.preloader.hide();
   }
 }
