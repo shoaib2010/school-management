@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,16 +15,16 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 import { AppComponent } from './app.component';
 
 // Import containers
-import { DefaultLayoutComponent } from './containers';
+// import { DefaultLayoutComponent } from './containers';
 
 // import { P404Component } from './views/error/404.component';
 // import { P500Component } from './views/error/500.component';
 // import { LoginComponent } from './views/login/login.component';
 // import { RegisterComponent } from './views/register/register.component';
 
-const APP_CONTAINERS = [
-  DefaultLayoutComponent
-];
+// const APP_CONTAINERS = [
+//   DefaultLayoutComponent
+// ];
 
 // import {
 //   AppAsideModule,
@@ -84,6 +84,7 @@ import { LoginComponent } from './containers/modules/login/login.component';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
