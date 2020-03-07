@@ -1,21 +1,17 @@
 {
-  "name": "@coreui/coreui-free-angular-admin-template",
+  "name": "@School/Managment",
   "version": "2.9.0",
-  "description": "CoreUI Free Angular 2+ Admin Template",
+  "description": "School Managment",
   "author": {
-    "name": "Łukasz Holeczek",
-    "url": "http://holeczek.pl",
-    "github": "https://github.com/mrholek",
-    "twitter": "https://twitter.com/lukaszholeczek"
+    "name": "School Managment"
   },
   "contributors": [
     {
-      "name": "Andrzej Kopański",
-      "url": "https://github.com/xidedix"
+      "name": "School Managment"
     }
   ],
-  "homepage": "https://coreui.io/angular",
-  "copyright": "Copyright 2020 creativeLabs Łukasz Holeczek",
+  "homepage": "School Managment",
+  "copyright": "School Managment",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -29,10 +25,12 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^9.0.0",
+    "@angular/cdk": "^9.1.1",
     "@angular/common": "^9.0.0",
     "@angular/compiler": "^9.0.0",
     "@angular/core": "^9.0.0",
     "@angular/forms": "^9.0.0",
+    "@angular/material": "^9.1.1",
     "@angular/platform-browser": "^9.0.0",
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/router": "^9.0.0",
